@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页生成器</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧：输入表单 -->
+        <div class="form-panel">
+            <h1>个人主页生成器</h1>
+            <p class="subtitle">填写您的信息，实时预览您的个人主页</p>
+            
+            <form id="profileForm">
+                <!-- 基本信息 -->
+                <section class="form-section">
+                    <h2>基本信息</h2>
+                    <div class="form-group">
+                        <label for="name">姓名 *</label>
+                        <input type="text" id="name" name="name" placeholder="张三" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">职业标题</label>
+                        <input type="text" id="title" name="title" placeholder="软件工程师">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">个人简介</label>
+                        <textarea id="bio" name="bio" rows="4" placeholder="简短介绍一下自己..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">头像</label>
+                        <input type="file" id="avatar" name="avatar" accept="image/*">
+                        <small>支持 JPG、PNG、GIF 格式</small>
+                    </div>
+                </section>
+
+                <!-- 联系方式 -->
+                <section class="form-section">
+                    <h2>联系方式</h2>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">电话</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+86 138-0000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="github">GitHub</label>
+                        <input type="url" id="github" name="github" placeholder="https://github.com/username">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+                    </div>
+                </section>
+
+                <!-- 教育经历 -->
+                <section class="form-section">
+                    <h2>教育经历</h2>
+                    <div id="educationList"></div>
+                    <button type="button" class="btn-add" onclick="addEducation()">+ 添加教育经历</button>
+                </section>
+
+                <!-- 实习经历 -->
+                <section class="form-section">
+                    <h2>实习经历</h2>
+                    <div id="internshipList"></div>
+                    <button type="button" class="btn-add" onclick="addInternship()">+ 添加实习经历</button>
+                </section>
+
+                <!-- 科研经历 -->
+                <section class="form-section">
+                    <h2>科研经历</h2>
+                    <div id="researchList"></div>
+                    <button type="button" class="btn-add" onclick="addResearch()">+ 添加科研经历</button>
+                </section>
+
+                <!-- 技能 -->
+                <section class="form-section">
+                    <h2>技能</h2>
+                    <div id="skillsList"></div>
+                    <button type="button" class="btn-add" onclick="addSkill()">+ 添加技能</button>
+                </section>
+
+                <!-- 奖项荣誉 -->
+                <section class="form-section">
+                    <h2>奖项荣誉</h2>
+                    <div id="awardsList"></div>
+                    <button type="button" class="btn-add" onclick="addAward()">+ 添加奖项</button>
+                </section>
+
+                <!-- 导出按钮 -->
+                <div class="form-actions">
+                    <button type="button" class="btn-primary" onclick="exportHTML()">导出 HTML</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 右侧：实时预览 -->
+        <div class="preview-panel">
+            <div class="preview-header">
+                <h3>实时预览</h3>
+            </div>
+            <div id="preview" class="preview-content">
+                <!-- 预览内容将由 JavaScript 动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/generator.js"></script>
+</body>
+</html>
